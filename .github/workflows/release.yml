@@ -63,10 +63,3 @@ jobs:
           REPO: ghcr.io/${{ github.repository_owner }}/buildpacks
           YJ_VERSION: 5.0.0
           CRANE_VERSION: 0.8.0
-      - id: register
-        uses: docker://ghcr.io/buildpacks/actions/registry/request-add-entry:5.5.0
-        with:
-          token: ${{ secrets.PUBLIC_REPO_TOKEN }}
-          id: ${{ steps.package.outputs.bp_id }}
-          version: ${{ steps.package.outputs.version }}
-          address: ${{ steps.package.outputs.address }}
