@@ -6,10 +6,12 @@ set -eo pipefail
 if [[ ! -f Aptfile ]]; then
   echo "Aptfile is not present"
   exit 100
+fi
 
 # 2. Get Args
 plan_path=$2
 
+echo "Aptfile found"
 # 3. Declare dependencies
 cat <<EOF >> "${plan_path}"
 # Buildpack provides this dependency
