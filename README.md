@@ -1,10 +1,8 @@
 # apt Buildpack
 
-[![Version](https://img.shields.io/badge/dynamic/json?url=https://cnb-registry-api.herokuapp.com/api/v1/buildpacks/fagiani/apt&label=Version&query=$.latest.version)](https://github.com/dmikusa/apt-buildpack)
-
 This is a [Cloud Native Buildpack](https://buildpacks.io/) that adds support for `apt`-based dependencies during both build and runtime.
 
-This buildpack is based on [fagiani/apt-buildpack](https://github.com/fagiani/apt-buildpack) and [heroku-buildpack-apt](https://github.com/heroku/heroku-buildpack-apt).
+This buildpack is based on [falpires/apt-buildpack](https://github.com/falpires/apt-buildpack) and [heroku-buildpack-apt](https://github.com/heroku/heroku-buildpack-apt).
 
 
 ## Usage

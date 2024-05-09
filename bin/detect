@@ -1,8 +1,28 @@
 #!/usr/bin/env bash
-# bin/detect <build-dir>
 
-if [[ -f Aptfile ]]; then
-  echo "Apt"
-else
-  echo "no" && exit 1
-fi
+set -eo pipefail
+
+# 1. Check if Aptfile is present
+if [[ ! -f Aptfile ]]; then
+  exit 100
+
+# 2. Get Args
+plan_path=$2
+
+# 3. Declare dependencies
+cat >> "${plan_path}" <<EOL
+# Buildpack provides this dependency
+#
+# NOTE: The dependency is provided during the 'build' process.
+#
+[[provides]]
+name = "apt"
+
+# Buildpack requires this dependency
+#
+# NOTE: Everything aside from 'name' is simply additional information that the providing buildpack can use to resolve
+#       the dependency.
+#
+[[requires]]
+name = "apt"
+EOL
